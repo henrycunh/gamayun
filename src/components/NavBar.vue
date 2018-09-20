@@ -3,7 +3,7 @@
         <h1 class="title">Gamayun</h1>
 
         <form @submit.prevent="submitSearch">
-            <input type='text' v-model="searchInVal" placeholder="pesquisar um produto..."/>
+            <input type='text' v-model="searchInVal"/>
             <i class="icon fas fa-search"></i>
         </form>
     </nav>
@@ -44,7 +44,9 @@ export default {
             font-size: 20pt
             margin: 0
             position: relative
-            top: -2px
+            top: 3px
+            text-transform: lowercase
+            letter-spacing: -2px
             font-family: $ff
             color: $primary
             float: left
@@ -52,17 +54,20 @@ export default {
             float: right
             input
                 border: 0
-                font-size: 12pt
-                border-bottom: 2px solid $primary
-                background: transparent
+                font-size: 14pt
+                // border-bottom: 2px solid $primary
+                background: #f9f9f9
+                border-radius: 20px
                 position: relative
                 outline: none
+                top: -2px
                 font-family: $ffp
                 color: #666
-                padding: 5px 30px
-                // padding-right: 20px
+                padding: 10px 20px
+                padding-right: 30px
             .icon
                 position: relative
-                left: -20px
+                top: -4px
+                left: -30px
                 color: $primary
 </style>
