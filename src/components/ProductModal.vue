@@ -81,7 +81,6 @@ export default {
          */
         getVariants(){
             if(this.product.variant){
-                console.log(Object.entries(JSON.parse(this.product.variant.replace(/'/g, '"'))))
                 return Object.entries(JSON.parse(this.product.variant.replace(/'/g, '"')))
                     .map( entry => [entry[0], entry[1].join(', ')])
             }
