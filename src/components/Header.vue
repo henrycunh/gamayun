@@ -1,4 +1,9 @@
 <template>
+    <!-- 
+        HEADER COMPONENT
+        Contains the 'logo' and a search bar, used
+        to present the first look into the application.
+     -->
     <header>
         <h1 class='title'>Gamayun</h1>
         <form @submit.prevent='submitSearch'>
@@ -9,8 +14,10 @@
 </template>
 
 <script>
+// Imports
 import SearchStore from '../stores/SearchStore'
 
+// Module
 export default {
     data(){ 
         return {
@@ -18,6 +25,10 @@ export default {
         }
     },
     methods: {
+        /**
+         * Submits the search term to the Store
+         * for data fetching
+         */
         submitSearch(){
             SearchStore.search(this.searchTerm)
         }
@@ -31,7 +42,6 @@ export default {
         h1.title
             text-align: center
             font-size: 72pt
-            // text-transform: lowercase
             letter-spacing: -.075em
             font-weight: 100
             margin: 0

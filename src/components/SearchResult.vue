@@ -1,4 +1,11 @@
 <template>
+    <!-- 
+        SEARCH RESULT COMPONENT
+        Represents the data of every result in a
+        simple way, and holds the functionality to
+        opening said data in a modal, by adding the
+        current product to the state
+     -->
     <article @click='viewProduct()'>
         <div class="image">
             <img v-bind:src="getImage()" v-bind:alt="data.title"/>
@@ -15,7 +22,10 @@
 </template>
 
 <script>
+// Import
 import StateStore from '../stores/StateStore'
+
+// Module
 export default {
     props: ['data'],
     data(){
@@ -24,23 +34,23 @@ export default {
             }
     },
     methods:{
+        /**
+         * Parses the image, removing
+         * characters impurities
+         */
         getImage(){
             if(this.data.imgs){
-                // eslint-disable-next-line
-                console.log(this.data.imgs.replace(/'/g, '"'))
                 if(this.data.imgs.indexOf("[") != -1)
                     return JSON.parse( this.data.imgs.replace(/'/g, '"'))[0]
                 return this.data.imgs
             }
         },
+        /**
+         * Adds current product to the state
+         */
         viewProduct(){
-            console.log(this.data)
             StateStore.currentProduct(this.data)
         }
-    },
-    mounted(){
-        // eslint-disable-next-line
-        console.log(this.data, this.getImage())
     }
 }
 </script>

@@ -1,26 +1,38 @@
+// Imports
 import axios from 'axios'
 import StateStore from './StateStore'
 
+// Constants
 const TOKEN = '88c4f286bfa68445eb170e6d159b35f74e98847b'
 const ADDR  = 'http://35.199.65.245' 
 
-
+// Module
 export default {
-
+    // State Schema
     data: {
         searchTerm: "",
         lastResults: [],
         resultsDone: true,
     },
-
+    /**
+     * Return the amount of results
+     */
     resultsNum(){
         return this.data.lastResults.length
     },
 
+    /**
+     * Return the results
+     */
     results(){
         return this.data.lastResults
     },
 
+    /**
+     * Searches the term using the provided API
+     * 
+     * @param {*} term Term to be searched
+     */
     search(term){ 
         // Saves the last searched term
         this.data.searchTerm = term
@@ -57,9 +69,5 @@ export default {
                     StateStore.toTab('results')
             })
     },
-
-    fetchTerm(){
-        return this.data.searchTerm
-    }
-
+    
 }

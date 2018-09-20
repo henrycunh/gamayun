@@ -1,4 +1,11 @@
 <template>
+    <!-- 
+        BACKGROUND COMPONENT
+        Contains a ParticlesJS dynamic background,
+        if necessary will change the hardcoded colors
+        and settings to something more flexible, intended
+        to use alongside the SASS variables
+     -->
     <div>
         <vue-particles 
             color='#E74C3C'
@@ -11,10 +18,8 @@
 </template>
 
 <script>
-
 export default {
 }
-
 </script>
 
  <style lang="sass" scoped>

@@ -1,4 +1,8 @@
 <template>
+    <!-- 
+        SEARCH DISPLAY COMPONENT
+        Contains all the search results, simply
+     -->
     <section>
         <span class="result-count">
             {{ SearchStore.resultsNum() ? `${SearchStore.resultsNum()} produtos encontrados.` : `Nenhum produto foi encontrado` }}
@@ -14,9 +18,11 @@
 </template>
 
 <script>
+// Import
 import SearchResult from './SearchResult.vue'
 import SearchStore from '../stores/SearchStore'
 
+// Module
 export default {
     components:{
         SearchResult

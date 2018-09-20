@@ -1,4 +1,9 @@
 <template>
+    <!-- 
+        NAVBAR COMPONENT
+        Contains a global search bar and a iteractable
+        logo, used to go back to the home presentation
+     -->
     <nav v-bind:class='{ active }'>
         <h1 v-on:click='goHome()' class="title">Gamayun</h1>
 
@@ -10,6 +15,7 @@
 </template>
 
 <script>
+// Imports
 import SearchStore from '../stores/SearchStore'
 import StateStore from '../stores/StateStore'
 
@@ -21,9 +27,17 @@ export default {
         }
     },
     methods: {
+        /**
+         * Submits the search term to the
+         * store, in order to fetch data
+         */
         submitSearch(){
             SearchStore.search(this.searchInVal)
         },
+        /**
+         * Switches the tab state to the
+         * home presentation
+         */
         goHome(){
             StateStore.toTab('home')
         }

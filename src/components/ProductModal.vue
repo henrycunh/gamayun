@@ -1,7 +1,12 @@
 <template>
+    <!-- 
+        PRODUCT MODAL COMPONENT
+        Presents a modal containing the current
+        product informations, clicking outside 
+        it closes the modal
+     -->
     <div>
         <div class="modal">
-            <!-- <i style='color: #333' class="icon fas fa-close"></i> -->
             <!-- Modal Content -->
             <div class="title">{{ product.title }}</div>
             <div class="grid">
@@ -28,7 +33,10 @@
 </template>
 
 <script>
+// Imports
 import StateStore from '../stores/StateStore'
+
+// Module
 export default {
     data(){
         return {
@@ -38,6 +46,10 @@ export default {
         }
     },
     methods:{
+        /**
+         * Parses the image json, which contains some
+         * impurities in the form of characters
+         */
         getImage(){
             if(this.product.imgs){
                 if(this.product.imgs.indexOf("[") != -1)
@@ -45,15 +57,28 @@ export default {
                 return this.product.imgs
             }
         },
+        /**
+         * Generates the breadcrumb segment of the modal
+         */
         getBreadcrumb(){
             if(this.product.breadcrumb){
                 let terms = JSON.parse(this.product.breadcrumb.replace(/'/g, '"'))
                 return terms.reduce((p, c) => p != "" ? `${p} <i class="fas fa-angle-right"></i> ${c}` : c, "")
             }
         },
+        /**
+         * Handles clicking outside the modal,
+         * removing the product from the current
+         * state
+         */
         hideProduct: () => {
             StateStore.removeProduct()
         },
+        /**
+         * Handles the variants, converting
+         * the object to a array of entries,
+         * easier to manipulate
+         */
         getVariants(){
             if(this.product.variant){
                 console.log(Object.entries(JSON.parse(this.product.variant.replace(/'/g, '"'))))
