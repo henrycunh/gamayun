@@ -19,4 +19,7 @@ yarn serve
 ```
 
 ## Demo
-I'm providing a Heroku instance running the app, you can access it here. 
+I'm providing a Heroku instance running the app, you can [access it here](http://7af1346c.ngrok.io/). 
+
+## Considerations
+Thanks to the Birdie team for letting me participate on the process, had lots of fun making this :)
