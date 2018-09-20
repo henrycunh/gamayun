@@ -1,6 +1,7 @@
 export default {
     state: {
-        tab: 'home'
+        tab: 'home',
+        product: null
     },
 
     isTab(tab){
@@ -9,6 +10,15 @@ export default {
 
     toTab(tab){
         this.state.tab = tab
+    },
+
+    currentProduct(productData){
+        if(productData)
+            this.state.product = productData
+        return this.state.product
+    },
+
+    removeProduct(){
+        this.state.product = null
     }
-    
 }

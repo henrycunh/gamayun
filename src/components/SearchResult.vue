@@ -1,5 +1,5 @@
 <template>
-    <article @click='redirect(data.url)'>
+    <article @click='viewProduct()'>
         <div class="image">
             <img v-bind:src="getImage()" v-bind:alt="data.title"/>
         </div>
@@ -15,28 +15,31 @@
 </template>
 
 <script>
-
+import StateStore from '../stores/StateStore'
 export default {
     props: ['data'],
     data(){
         return{
-
-        }
+            
+            }
     },
     methods:{
         getImage(){
             if(this.data.imgs){
+                // eslint-disable-next-line
                 console.log(this.data.imgs.replace(/'/g, '"'))
                 if(this.data.imgs.indexOf("[") != -1)
                     return JSON.parse( this.data.imgs.replace(/'/g, '"'))[0]
                 return this.data.imgs
             }
         },
-        redirect(url){
-            window.location.href = url
+        viewProduct(){
+            console.log(this.data)
+            StateStore.currentProduct(this.data)
         }
     },
     mounted(){
+        // eslint-disable-next-line
         console.log(this.data, this.getImage())
     }
 }
@@ -63,11 +66,11 @@ export default {
         .image
             grid-area: "image"
             img
-                max-width: 125px
+                width: 125px
         .content
             font-family: $ffp
             .title
-                text-align: center
+                text-align: left
                 color: $primary
                 font-weight: bold
                 font-size: 15pt

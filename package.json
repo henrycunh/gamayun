@@ -10,6 +10,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "particlesjs": "^2.2.3",
+    "perfect-scrollbar": "^1.4.0",
     "vue": "^2.5.17"
   },
   "devDependencies": {

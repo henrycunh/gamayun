@@ -35,7 +35,8 @@ export default {
         top: 15%
         left: 50%
         transform: translateX(-50%)
-        background: rgba(0,0,0,.3)
+        background: rgba(40, 40, 40, .8)
+        // background: rgba(0,0,0,.3)
         padding: 20px
         box-shadow: 0 4px 10px #111
         border-radius: 10px
