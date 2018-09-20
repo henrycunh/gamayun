@@ -1,4 +1,5 @@
 import axios from 'axios'
+import StateStore from './StateStore'
 
 const TOKEN = '88c4f286bfa68445eb170e6d159b35f74e98847b'
 const ADDR  = 'http://35.199.65.245' 
@@ -10,6 +11,14 @@ export default {
         searchTerm: "",
         lastResults: [],
         resultsDone: true,
+    },
+
+    resultsNum(){
+        return this.data.lastResults.length
+    },
+
+    results(){
+        return this.data.lastResults
     },
 
     search(term){ 
@@ -39,12 +48,13 @@ export default {
                                     this.data.resultsDone = true
                                 }
                             })
+                        }
                     }
-                }
-                // Else, sets results as done, sub flags 
-                // as no results found through the empty
-                // lastResults array
-                this.data.resultsDone = true
+                    // Else, sets results as done, sub flags 
+                    // as no results found through the empty
+                    // lastResults array
+                    this.data.resultsDone = true
+                    StateStore.toTab('results')
             })
     },
 

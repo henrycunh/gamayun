@@ -18,7 +18,7 @@ export default {
   @import url('https://fonts.googleapis.com/css?family=Roboto:100,300')
   @import url('https://fonts.googleapis.com/css?family=Dosis')
   @import url('https://use.fontawesome.com/releases/v5.3.1/css/all.css')
-  @import url('https://raw.githubusercontent.com/daneden/animate.css/master/animate.css')
+  @import url(https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css)
   
   body
     margin: 0

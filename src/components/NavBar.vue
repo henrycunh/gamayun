@@ -10,6 +10,8 @@
 </template>
 
 <script>
+import SearchStore from '../stores/SearchStore'
+
 export default {
     props: ['active'],
     data(){
@@ -19,8 +21,7 @@ export default {
     },
     methods: {
         submitSearch(){
-            // eslint-disable-next-line
-            console.log(this.searchInVal)
+            SearchStore.search(this.searchInVal)
         }
     }
 }
@@ -33,22 +34,18 @@ export default {
         right: 0
         left: 0
         padding: 10px 20px
-        background: #ECF0F1
-        box-shadow: 0 2px 10px #333
-        opacity: 0  
-        transition: .5s ease
-        &.active
-            transition: .5s ease
-            opacity: 1
+        background: rgba(0, 0, 0, .3)
+        box-shadow: 0 2px 0px rgba(0, 0, 0, .4)
         h1.title
-            font-size: 20pt
+            font-size: 28pt
             margin: 0
             position: relative
-            top: 3px
+            top: -4px
             text-transform: lowercase
-            letter-spacing: -2px
+            letter-spacing: -.075em
             font-family: $ff
             color: $primary
+            font-weight: 100
             float: left
         form 
             float: right
@@ -60,14 +57,14 @@ export default {
                 border-radius: 20px
                 position: relative
                 outline: none
-                top: -2px
+                // top: -2px
                 font-family: $ffp
                 color: #666
                 padding: 10px 20px
                 padding-right: 30px
             .icon
                 position: relative
-                top: -4px
+                top: -2px
                 left: -30px
                 color: $primary
 </style>
